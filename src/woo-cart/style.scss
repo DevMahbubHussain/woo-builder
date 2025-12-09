@@ -1,0 +1,362 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-my-plugin-mh-dynamic-block {
+	background-color: #21759b;
+	color: #fff;
+	padding: 2px;
+}
+
+
+/* ======================================================================
+   0. Variables and Base Styles
+   ====================================================================== */
+:root {
+    --cart-primary-color: #0073aa; /* WordPress Blue for CTAs */
+    --cart-accent-color: #1abc9c; /* Subtle green for success/highlight */
+    --cart-border-color: #e0e0e0;
+    --cart-background-light: #f9f9f9;
+    --cart-text-dark: #333;
+    --cart-text-muted: #777;
+    --cart-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.cart-block-wrapper {
+    /* Base Container */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft, modern shadow */
+    font-family: var(--cart-font-family);
+    color: var(--cart-text-dark);
+}
+
+.cart-block-wrapper h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-top: 0;
+    color: var(--cart-text-dark);
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--cart-border-color);
+}
+
+/* Responsive Layout */
+@media (min-width: 992px) {
+    .cart-block-wrapper {
+        flex-direction: row;
+    }
+    .cart-items-list {
+        flex: 3; /* Cart list takes majority space */
+    }
+    .cart-summary {
+        flex: 1; /* Summary box is narrower */
+        min-width: 300px;
+    }
+}
+
+/* ======================================================================
+   1. Cart Items List
+   ====================================================================== */
+.cart-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.custom-cart-item {
+    display: grid;
+    /* Columns: Image | Details | Quantity | Price/Remove */
+    grid-template-columns: 80px 1.5fr 80px 100px;
+    gap: 20px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--cart-border-color);
+    font-size: 0.95em;
+}
+
+.custom-cart-item:last-child {
+    border-bottom: none;
+}
+
+.item-image-col img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.item-details-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-details-col a {
+    font-weight: 600;
+    color: var(--cart-text-dark);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.item-details-col a:hover {
+    color: var(--cart-primary-color);
+}
+
+.item-sku {
+    font-size: 0.8em;
+    color: var(--cart-text-muted);
+}
+
+/* Quantity Input */
+.item-qty-col input {
+    width: 55px;
+    padding: 8px 5px;
+    border: 1px solid var(--cart-border-color);
+    border-radius: 6px;
+    text-align: center;
+    transition: border-color 0.2s;
+}
+.item-qty-col input:focus {
+    border-color: var(--cart-primary-color);
+    outline: none;
+}
+
+/* Price and Remove Button */
+.item-price-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.item-subtotal {
+    font-weight: 700;
+    color: var(--cart-text-dark);
+    margin-bottom: 8px;
+}
+
+.remove-button {
+    background: none;
+    border: none;
+    color: #e74c3c; /* A soft red for delete actions */
+    cursor: pointer;
+    font-size: 0.85em;
+    padding: 0;
+    transition: color 0.2s;
+}
+.remove-button:hover {
+    color: #c0392b;
+}
+
+/* ======================================================================
+   2. Cart Summary (Totals)
+   ====================================================================== */
+.cart-summary {
+    background-color: var(--cart-background-light);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    height: fit-content; /* Only take up necessary height */
+}
+
+.cart-summary h3 {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-top: 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--cart-border-color);
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 1em;
+}
+
+.total-line span {
+    color: var(--cart-text-muted);
+}
+.total-line strong {
+    color: var(--cart-text-dark);
+    font-weight: 600;
+}
+
+/* Final Total Emphasis */
+.total-line.final-total {
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 2px dashed #ccc;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--cart-text-dark);
+}
+
+/* Checkout Button */
+.checkout-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 25px;
+    background-color: var(--cart-primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 115, 170, 0.3); /* Shadow based on primary color */
+}
+
+.checkout-button:hover {
+    background-color: #005a87; /* Darker blue on hover */
+    box-shadow: 0 5px 15px rgba(0, 115, 170, 0.4);
+}
+
+
+/* ======================================================================
+   3. Empty/Loading/Error States
+   ====================================================================== */
+.loading-state, .empty-state, .error-state {
+    text-align: center;
+    padding: 40px;
+    border: 2px dashed var(--cart-border-color);
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.empty-state h2 {
+    color: var(--cart-text-dark);
+    border-bottom: none;
+}
+
+.return-shop-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    background-color: var(--cart-accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.return-shop-button:hover {
+    background-color: #16a085;
+}
+
+
+/* --- Coupon Form Styling --- */
+.coupon-container {
+    padding: 15px 0;
+    margin-bottom: 15px;
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px dashed #ddd;
+}
+
+.coupon-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.coupon-form input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--cart-border-color);
+    border-radius: 6px;
+    font-size: 0.9em;
+}
+
+.coupon-form button {
+    background-color: #2c3e50; /* Darker, neutral button */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.coupon-form button:hover:not(:disabled) {
+    background-color: #34495e;
+}
+
+.coupon-form button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+
+/* --- Applied Coupons --- */
+.applied-coupons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.applied-coupon-tag {
+    display: flex;
+    align-items: center;
+    background-color: #e8f8f5; /* Light accent background */
+    color: #1abc9c;
+    border: 1px solid #1abc9c;
+    border-radius: 12px;
+    padding: 4px 10px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.discount-amount {
+    margin-left: 8px;
+}
+
+.coupon-remove-btn {
+    background: none;
+    border: none;
+    color: #1abc9c;
+    margin-left: 6px;
+    padding: 0 4px;
+    cursor: pointer;
+    font-size: 1em;
+    line-height: 1;
+}
+
+/* --- Summary Discount Line --- */
+.total-line.discount-line {
+    font-weight: 600;
+    color: #1abc9c;
+}
+
+/* --- Coupon Message Styling --- */
+.coupon-message {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.coupon-message.message-error {
+    background-color: #fcebeb; /* Light red background */
+    color: #cc0000; /* Darker red text */
+    border: 1px solid #eba6a6;
+}
+
+.coupon-message.message-success {
+    background-color: #e8f8f5; /* Light green background */
+    color: #1abc9c; /* Accent green text */
+    border: 1px solid #1abc9c;
+}
+
+/* Fallback for general WooCommerce notices */
+.coupon-message.message-info {
+    background-color: #f0f8ff;
+    color: #0073aa;
+    border: 1px solid #a8cde0;
+}

@@ -1,0 +1,1 @@
+console.log("woo-category editor.js loaded in block editor!");

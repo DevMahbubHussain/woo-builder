@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "woo-builder/woo-cart",
+	"version": "0.1.0",
+	"title": "WooCommerce Cart",
+	"category": "woo-builder",
+	"description": "WooCommerce Mini Cart Block.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": true,
+		"color": {
+			"text": true,
+			"background": true,
+			"gradients": true,
+			"link": true
+		},
+		"attributes": {
+			"checkoutUrl": {
+				"type": "string",
+				"default": "/checkout"
+			},
+			"style": {
+				"type": "object",
+				"default": {
+					"color": {
+						"background": "#f9f9f9"
+					}
+				}
+			}
+		}
+	},
+	"textdomain": "woo-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
