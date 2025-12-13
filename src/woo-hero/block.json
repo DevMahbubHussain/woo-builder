@@ -1,0 +1,114 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "woo-builder/woo-hero",
+	"version": "0.1.0",
+	"title": "Hero Section",
+	"category": "woo-builder",
+	"icon": "superhero-alt",
+	"description": "Hero Section for All Pages.",
+	"example": {},
+	"supports": {
+		"align": true,
+		"html": false,
+		"spacing": {
+			"padding": true,
+			"margin": true,
+			"blockGap": true
+		},
+		"background": {
+			"backgroundImage": true,
+			"backgroundSize": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"textAlign": true
+		}
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Your Next Big Idea Starts Here"
+		},
+		"content": {
+			"type": "string",
+			"default": "Attract attention with clear, compelling copy and a beautiful background."
+		},
+		"button1Text": {
+			"type": "string",
+			"default": "Get Started"
+		},
+		"button1Url": {
+			"type": "string",
+			"default": "#"
+		},
+		"button1Color": {
+			"type": "string",
+			"default": "#007cba"
+		},
+
+		"button2Text": {
+			"type": "string"
+		},
+		"button2Url": {
+			"type": "string"
+		},
+		"button2Color": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"button2TextColor": {
+			"type": "string",
+			"default": "#333333"
+		},
+		"overlayColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"overlayOpacity": {
+			"type": "number",
+			"default": 0.5
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"backgroundUrl": {
+			"type": "string"
+		},
+
+		"headingSize": {
+			"type": "string",
+			"default": "48px"
+		},
+		"contentSize": {
+			"type": "string",
+			"default": "20px"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"minHeight": {
+			"type": "string",
+			"default": "400px"
+		},
+		"paddingTop": {
+			"type": "string",
+			"default": "100px"
+		},
+		"paddingBottom": {
+			"type": "string",
+			"default": "100px"
+		},
+		"alignment": {
+			"type": "string",
+			"default": "center"
+		}
+	},
+	"textdomain": "woo-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

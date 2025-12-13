@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "woo-builder/woo-product-search",
+	"version": "0.1.0",
+	"title": "Product Search",
+	"category": "woo-builder",
+	"icon": "search",
+	"description": "WooCommerce Product Search.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"placeholder":{
+			"type":"string",
+			"default":"Search product"
+		},
+		"searchButton":{
+			"type":"string",
+			"default":"Search Product"
+		}
+	},
+	"textdomain": "woo-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

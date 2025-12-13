@@ -20,6 +20,7 @@
 	"dependencies": {
 		"@wordpress/api-fetch": "^7.36.0",
 		"@wordpress/components": "^30.9.0",
+		"@wordpress/compose": "^7.36.0",
 		"@wordpress/data": "^10.36.0"
 	}
 }
