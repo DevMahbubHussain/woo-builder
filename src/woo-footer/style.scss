@@ -1,0 +1,66 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-my-plugin-mh-dynamic-block {
+	background-color: #21759b;
+	color: #fff;
+	padding: 2px;
+}
+
+/*
+ * style.css
+ * This targets the front-end rendering
+ */
+
+/* 1. Full-Width Support */
+.wp-block-woo-builder-site-footer.alignfull {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    /* Remove padding/margin inherited from theme wrapper */
+    max-width: none;
+}
+
+/* 2. Base Footer Styling (Uses theme color support) */
+.custom-site-footer {
+    padding-top: 50px; /* Default padding */
+    padding-bottom: 30px;
+    /* Uses CSS variables or theme color classes */
+}
+
+.custom-site-footer .footer-logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* 3. Divider Styling */
+.custom-site-footer .footer-divider {
+    border: none;
+    height: 1px;
+    background-color: var(--footer-divider-color, #222222); /* Uses CSS Variable */
+    margin: 30px 0;
+    width: 100%;
+}
+
+/* 4. Column Area */
+.custom-site-footer .footer-main-columns {
+    /* Inherits Flexbox/Grid layout from block.json supports.layout */
+    display: flex; /* or grid, based on block.json default */
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* 5. Copyright */
+.custom-site-footer .footer-copyright-section p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Ensure nested blocks (like core/list) inherit text color */
+.custom-site-footer .footer-main-columns * {
+    color: inherit;
+}

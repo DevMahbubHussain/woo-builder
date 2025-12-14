@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "woo-builder/woo-header",
+	"version": "0.1.0",
+	"title": "Configurable Site Header",
+	"category": "woo-builder",
+	"icon": "index-card",
+	"description": "A structured wheader component with customizable columns, background, and copyright area.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"],
+		"color": {
+			"background": true,
+			"text": true,
+			"link": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"layout": {
+			"inherit": false,
+			"allowOrientation": false,
+			"default": {
+				"type": "flex",
+				"orientation": "horizontal",
+				"justifyContent": "space-between",
+				"flexWrap": "wrap"
+			}
+		}
+	},
+	"attributes": {
+		"logoUrl": {
+			"type": "string"
+		},
+		"logoAlt": {
+			"type": "string"
+		},
+		"logoWidth": {
+            "type": "string",
+            "default": "150px"
+        },
+		"minHeight": {
+			"type": "string",
+			"default": "80px"
+		},
+		"borderBottomColor": {
+			"type": "string"
+		},
+		"isSticky": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"usesContext": ["postId", "postType"],
+	"textdomain": "woo-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

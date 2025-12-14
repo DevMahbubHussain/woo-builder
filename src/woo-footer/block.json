@@ -1,0 +1,67 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "woo-builder/woo-footer",
+	"version": "0.1.0",
+	"title": "Configurable Site Footer",
+	"category": "woo-builder",
+	"icon": "heading",
+	"description": "A structured footer component with customizable columns, background, and copyright area.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"],
+		"color": {
+			"background": true,
+			"text": true,
+			"link": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"layout": {
+			"inherit": false,
+			"default": {
+				"type": "flex",
+				"orientation": "horizontal",
+				"justifyContent": "space-between",
+				"flexWrap": "wrap"
+			}
+		}
+	},
+	"attributes": {
+		"logoUrl": {
+			"type": "string"
+		},
+		"logoAlt": {
+			"type": "string"
+		},
+		"showDivider": {
+			"type": "boolean",
+			"default": true
+		},
+		"dividerColor": {
+			"type": "string",
+			"default": "#222222"
+		},
+		"copyrightText": {
+			"type": "string"
+		},
+		"copyrightAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"columnCount": {
+			"type": "number",
+			"default": 4
+		}
+	},
+	"usesContext": ["postId", "postType"],
+	"providesContext": { "footer/textColor": "textColor" },
+	"textdomain": "woo-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

@@ -1,0 +1,57 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-my-plugin-mh-dynamic-block {
+	background-color: #21759b;
+	color: #fff;
+	padding: 2px;
+}
+
+
+
+.wp-block-woo-builder-site-header {
+    display: flex; 
+    align-items: center;
+    padding-left: var(--wp--style--block-padding, 20px);
+    padding-right: var(--wp--style--block-padding, 20px);
+    width: 100%;
+}
+
+.wp-block-woo-builder-site-header.alignfull {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+}
+
+.custom-site-header {
+    justify-content: space-between; 
+}
+
+.custom-site-header.is-sticky-enabled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: background-color 0.3s, box-shadow 0.3s; 
+}
+
+
+.custom-site-header.is-sticky-enabled.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. Navigation Styling Fixes */
+.custom-site-header .header-nav-area {
+    flex-grow: 1; 
+    display: flex;
+    justify-content: flex-end; 
+}
+
+
+.custom-site-header .header-nav-area .wp-block-navigation {
+
+}
