@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "woo-builder/woo-realeted-products",
+	"version": "0.1.0",
+	"title": "Related Products",
+	"category": "woo-builder",
+	"icon": "store",
+	"description": "Related Product.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Frequently Bought Together"
+		},
+		"relatedCount": {
+			"type": "number",
+			"default": 6
+		},
+		"discountPercentage": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"textdomain": "woo-builder",
+	"usesContext": ["productId"],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

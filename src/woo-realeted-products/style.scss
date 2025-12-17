@@ -1,0 +1,86 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-my-plugin-mh-dynamic-block {
+	background-color: #21759b;
+	color: #fff;
+	padding: 2px;
+}
+
+
+.fbt-bundle-wrapper {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: #fafafa;
+
+    .bundle-visuals {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+        
+        .bundle-image-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .bundle-plus {
+            font-size: 24px;
+            font-weight: bold;
+            color: #999;
+        }
+    }
+
+    .bundle-check-item {
+        margin-bottom: 8px;
+        font-size: 14px;
+        
+        input { margin-right: 10px; }
+        .product-price { color: #666; margin-left: 5px; }
+    }
+
+    .bundle-action {
+        margin-top: 20px;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+
+        .total-label { font-size: 18px; margin-bottom: 10px; }
+    }
+}
+
+.fbt-bundle-wrapper {
+    position: relative;
+    
+    .bundle-badge {
+        position: absolute;
+        top: -15px;
+        right: 20px;
+        background: #ff4747;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 14px;
+        box-shadow: 0 4px 10px rgba(255, 71, 71, 0.3);
+        z-index: 10;
+    }
+
+    .old-price {
+        text-decoration: line-through;
+        color: #999;
+        margin-right: 10px;
+        font-size: 0.9em;
+    }
+
+    .current-price {
+        color: #2ecc71; 
+        font-size: 1.2em;
+    }
+}

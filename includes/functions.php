@@ -74,3 +74,49 @@ add_filter('preprocess_comment', function ($commentdata) {
 
 //     return $commentdata;
 // });
+
+
+/**
+ * Apply a bundle discount by scanning the cart for products associated with the FBT block.
+ */
+add_action( 'woocommerce_cart_calculate_fees', 'mh_apply_bundle_discount', 10, 1 );
+
+function mh_apply_bundle_discount( $cart ) {
+    if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
+        return;
+    }
+
+
+    $discount_percentage = 10; // Default 10%
+    $target_bundle_count = 2;  // Min items to trigger discount
+
+    // Check if we are on a single product page to try and grab block-specific attributes
+    if ( is_product() ) {
+        $post_id = get_the_ID();
+        $content = get_post_field( 'post_content', $post_id );
+        $blocks  = parse_blocks( $content );
+
+        foreach ( $blocks as $block ) {
+            if ( $block['blockName'] === 'woo-builder/woo-realeted-products' ) {
+                if ( isset( $block['attrs']['discountPercentage'] ) ) {
+                    $discount_percentage = intval( $block['attrs']['discountPercentage'] );
+                }
+                break;
+            }
+        }
+    }
+
+    $items_in_cart = $cart->get_cart_contents_count();
+
+    if ( $items_in_cart >= $target_bundle_count && $discount_percentage > 0 ) {
+        $subtotal = $cart->get_subtotal();
+        $discount_amount = ( $subtotal * ( $discount_percentage / 100 ) ) * -1;
+
+
+        $cart->add_fee( 
+            sprintf( __( 'Bundle Savings (%d%%)', 'woo-builder' ), $discount_percentage ), 
+            $discount_amount, 
+            true 
+        );
+    }
+}
