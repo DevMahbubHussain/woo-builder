@@ -6,6 +6,7 @@
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
+		"check-types": "tsc --noEmit",
 		"build": "wp-scripts build --webpack-copy-php --blocks-manifest",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
@@ -15,7 +16,11 @@
 		"start": "wp-scripts start --webpack-copy-php --blocks-manifest"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^31.1.0"
+		"@types/react": "^19.2.7",
+		"@types/react-dom": "^19.2.3",
+		"@wordpress/interface": "^9.21.0",
+		"@wordpress/scripts": "^31.1.0",
+		"typescript": "^5.9.3"
 	},
 	"dependencies": {
 		"@wordpress/api-fetch": "^7.36.0",

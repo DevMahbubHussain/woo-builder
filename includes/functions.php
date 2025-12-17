@@ -36,4 +36,41 @@ function wbb_clear_category_transients() {
 add_action( 'edited_product_cat', 'wbb_clear_category_transients' ); // Category updated
 add_action( 'created_product_cat', 'wbb_clear_category_transients' ); // Category created
 add_action( 'delete_product_cat', 'wbb_clear_category_transients' ); // Category deleted
-add_action( 'woocommerce_after_product_object_save', 'wbb_clear_category_transients' ); // Product saved (count may change)
+add_action( 'woocommerce_after_product_object_save', 'wbb_clear_category_transients' ); // Product saved
+
+
+
+// Prevent Duplicate Reviews
+add_filter('preprocess_comment', function ($commentdata) {
+    if ($commentdata['comment_type'] === 'review') {
+        $exists = get_comments([
+            'user_id' => get_current_user_id(),
+            'post_id' => $commentdata['comment_post_ID'],
+            'type'    => 'review',
+            'count'   => true
+        ]);
+
+        if ($exists) {
+            wp_die('You already reviewed this product.');
+        }
+    }
+    return $commentdata;
+});
+
+
+// Purchase Verification
+// add_filter('preprocess_comment', function ($commentdata) {
+//     if ($commentdata['comment_type'] !== 'review') {
+//         return $commentdata;
+//     }
+
+//     if (!wc_customer_bought_product(
+//         wp_get_current_user()->user_email,
+//         get_current_user_id(),
+//         $commentdata['comment_post_ID']
+//     )) {
+//         wp_die('Only verified buyers can leave reviews.');
+//     }
+
+//     return $commentdata;
+// });

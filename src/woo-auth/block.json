@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "woo-builder/woo-auth",
+	"version": "0.1.0",
+	"title": "WooCommerce Authentication",
+	"category": "woo-builder",
+	"icon": "smiley",
+	"description": "WooCommerce Authentication",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"redirectUrl": {
+			"type": "string",
+			"default": "/my-account"
+		}
+	},
+	"textdomain": "woo-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

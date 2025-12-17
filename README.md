@@ -21,3 +21,9 @@ Always validate and sanitize values, especially coming from user input
 2. CONSTRUCT THE  QUERY ARGS
 3. FETCH Data
 ```
+
+
+### Install TypeScript Types
+```
+npm install --save-dev typescript @types/react @types/react-dom @wordpress/interface
+```

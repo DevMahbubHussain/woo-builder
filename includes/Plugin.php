@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App;
 
 use App\Ajax\Category;
+use App\Api\Api;
 use App\Assets\Manager;
 
 defined('ABSPATH') || exit;
@@ -40,7 +41,6 @@ final class Plugin
         define('MH_ACADEMY_PLUGIN_URL', plugin_dir_url(__FILE__));
         define('MH_ACADEMY_PLUGIN_ROOT_DIR', plugin_dir_path(dirname(__FILE__)));
         define('MH_ACADEMY_PLUGIN_PATH', plugin_dir_path(dirname(__FILE__)));
-
     }
 
     private function includes()
@@ -59,6 +59,7 @@ final class Plugin
         $category->register();
         $manager = new Manager();
         $manager->register();
-
+        $api = new Api();
+        $api->register();
     }
 }
