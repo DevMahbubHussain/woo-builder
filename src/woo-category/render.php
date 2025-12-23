@@ -4,7 +4,7 @@ use App\TemplateLoader;
 
 if (! class_exists('WooCommerce')) {
     return '<p class="woocommerce-missing">' .
-        esc_html__('WooCommerce is not installed or activated.', 'your-textdomain') .
+        esc_html__('WooCommerce is not installed or activated.', 'woo-builder') .
         '</p>';
 }
 
@@ -30,7 +30,7 @@ $custom_url = $attributes['customPlaceholderUrl'] ?? '';
 
 
 //  START OF CACHING LOGIC //
-// Define a default cache lifetime (e.g., 1 hour)
+// Define a default cache lifetime
 $cache_lifetime = HOUR_IN_SECONDS;
 // Define the base transient key
 $transient_base = 'wbb_woo_categories_';
@@ -126,12 +126,12 @@ $categories = get_terms($args);
 if (is_wp_error($categories) || empty($categories)) {
     if ($current_page > 1) {
         return '<p class="woocommerce-no-categories">' .
-            esc_html__('No more categories found on this page.', 'your-textdomain') .
+            esc_html__('No more categories found on this page.', 'woo-builder') .
             '</p>';
     }
 
     return '<p class="woocommerce-no-categories">' .
-        esc_html__('No product categories found.', 'your-textdomain') .
+        esc_html__('No product categories found.', 'woo-builder') .
         '</p>';
 }
 
