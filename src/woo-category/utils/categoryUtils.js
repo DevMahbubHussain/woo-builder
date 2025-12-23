@@ -1,11 +1,3 @@
-/**
- * Filters and sorts the list of categories based on block attributes.
- * This function handles the preview logic for the editor.
- *
- * @param {Array} allCategories - The full list of categories from the API.
- * @param {object} attributes - The current block attributes.
- * @returns {Array} The filtered, sorted, and limited array of categories for preview.
- */
 export const getFilteredCategories = (allCategories, attributes) => {
     if (!allCategories) return [];
 
