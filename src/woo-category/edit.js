@@ -8,7 +8,6 @@ import {
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 
-// IMPORTS FROM NEW FILES
 import useCategoriesData from "./hooks/useCategoriesData";
 import { getFilteredCategories } from "./utils/categoryUtils";
 import CategorySelectControl from "./components/CategorySelectControl";
@@ -16,7 +15,7 @@ import CategorySkeleton from "./components/CategorySkeleton";
 import CategoryPlaceholder from "../components/CategoryPlaceholder";
 import { TextControl } from "@wordpress/components";
 
-// --- EDIT FUNCTION START ---
+
 const Edit = ({ attributes, setAttributes }) => {
 	const {
 		layoutStyle,
@@ -61,7 +60,6 @@ const Edit = ({ attributes, setAttributes }) => {
 	return (
 		<div {...blockProps}>
 			<InspectorControls>
-				{/* ... (Layout & Appearance PanelBody - remains the same) ... */}
 				<PanelBody title={__("Layout & Appearance", "woo-builder")}>
 					<SelectControl
 						label={__("Layout Style", "woo-builder")}
@@ -132,8 +130,6 @@ const Edit = ({ attributes, setAttributes }) => {
 						]}
 						onChange={(newFilter) => setAttributes({ parentFilter: newFilter })}
 					/>
-
-					{/* REPLACED WITH REUSABLE COMPONENT */}
 					<CategorySelectControl
 						label={__("Include Specific Categories", "woo-builder")}
 						attributeName="selectedCategories"
@@ -142,8 +138,6 @@ const Edit = ({ attributes, setAttributes }) => {
 						setAttributes={setAttributes}
 						isLoading={isLoading}
 					/>
-
-					{/* REPLACED WITH REUSABLE COMPONENT */}
 					<CategorySelectControl
 						label={__("Exclude Categories", "woo-builder")}
 						attributeName="excludeCategories"
@@ -156,7 +150,6 @@ const Edit = ({ attributes, setAttributes }) => {
 
 				{/* ----------------------------------- */}
 
-				{/* Sorting PanelBody - remains the same structure */}
 				<PanelBody title={__("Sorting", "woo-builder")} initialOpen={false}>
 					<SelectControl
 						label={__("Order By", "woo-builder")}
@@ -183,8 +176,6 @@ const Edit = ({ attributes, setAttributes }) => {
 				</PanelBody>
 
 				{/* ----------------------------------- */}
-
-				{/* Pagination Settings PanelBody - remains the same structure */}
 				<PanelBody
 					title={__("Pagination Settings", "your-textdomain")}
 					initialOpen={false}
@@ -227,13 +218,11 @@ const Edit = ({ attributes, setAttributes }) => {
 					<RangeControl
 						label={__("Categories Per Page", "your-textdomain")}
 						value={categoriesToShow}
-						disabled // Disabled since it's redundant with Categories to Show, but kept for preview calculation context
 					/>
 				</PanelBody>
 
 				{/* ----------------------------------- */}
 
-				{/* Image Settings PanelBody - remains the same structure */}
 				<PanelBody title={__("Image Settings", "woo-builder")}>
 					<SelectControl
 						label={__("Select Image Size", "woo-builder")}
@@ -287,7 +276,6 @@ const Edit = ({ attributes, setAttributes }) => {
 				</PanelBody>
 			</InspectorControls>
 
-			{/* --- Block Preview Rendering (remains the same) --- */}
 			<div
 				className={`wp-block-woocommerce-categories-preview layout-${layoutStyle}`}
 			>
@@ -320,7 +308,6 @@ const Edit = ({ attributes, setAttributes }) => {
 				)}
 
 				{categoriesForPreview.length > 0 && (
-					// This section shows the live preview of filtered categories
 					<div
 						style={{
 							display: "grid",
@@ -342,7 +329,6 @@ const Edit = ({ attributes, setAttributes }) => {
 									backgroundColor: "#f9f9f9",
 								}}
 							>
-								{/* ... Category content preview (Image, Name, Count, Description) ... */}
 								{showImage &&
 									(category.image ? (
 										<img
@@ -387,7 +373,6 @@ const Edit = ({ attributes, setAttributes }) => {
 					</div>
 				)}
 
-				{/* --- Pagination Preview (remains the same) --- */}
 				{!isLoading && maxPages > 1 && (
 					<div style={{ marginTop: "20px", padding: "10px" }}>
 						{paginationType === "loadmore" && (
